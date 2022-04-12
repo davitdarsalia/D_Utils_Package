@@ -1,6 +1,8 @@
 package sliceUtils
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 func QuickSort(a []int) []int {
 	if len(a) < 2 {
@@ -21,6 +23,13 @@ func QuickSort(a []int) []int {
 	return a
 }
 
-func ReverseArray() {
-	return
+func ReverseArray(a []int) []int {
+	if len(a) == 0 {
+		panic(any("Empty Slices Not Allowed"))
+		return nil
+	}
+	for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
+		a[i], a[j] = a[j], a[i]
+	}
+	return a
 }
