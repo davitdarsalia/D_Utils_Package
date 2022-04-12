@@ -20,3 +20,7 @@ func QuickSort(a []int) []int {
 	QuickSort(a[left+1:])
 	return a
 }
+
+func ReverseArray() {
+	return
+}
