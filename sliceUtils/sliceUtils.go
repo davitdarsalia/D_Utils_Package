@@ -1,7 +1,9 @@
 package sliceUtils
 
 import (
+	"log"
 	"math/rand"
+	"sort"
 )
 
 func QuickSort(a []int) []int {
@@ -32,4 +34,17 @@ func ReverseArray(a []int) []int {
 		a[i], a[j] = a[j], a[i]
 	}
 	return a
+}
+
+func SortArray(arr []int, order string) []int {
+	if order == "Ascending" {
+		QuickSort(arr)
+	} else if order == "Descending" {
+		sort.Slice(arr, func(a, b int) bool {
+			return arr[a] > arr[b]
+		})
+	} else {
+		log.Fatalf("Invalid Order")
+	}
+	return arr
 }
