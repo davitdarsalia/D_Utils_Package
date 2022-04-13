@@ -48,3 +48,16 @@ func SortArray(arr []int, order string) []int {
 	}
 	return arr
 }
+
+func RemoveDuplicates[K comparable](arr []K) []K {
+	keys := make(map[K]bool)
+	set := make([]K, 0, 0)
+
+	for _, val := range arr {
+		if _, value := keys[val]; !value {
+			keys[val] = true
+			set = append(set, val)
+		}
+	}
+	return set
+}
